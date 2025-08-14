@@ -8,54 +8,55 @@
 <body>
   <h1>Tarot ↔ Playing Card Converter</h1>
 
+  <!-- Theme Toggle -->
+  <button id="themeToggle">Toggle Theme</button>
+
+  <!-- View Toggle -->
+  <button id="viewToggle">Toggle Grid/Table View</button>
 
   <!-- Search / Lookup -->
   <input type="text" id="search" placeholder="Search for a card...">
   <button id="randomBtn">Draw Random Card</button>
-  <button id="themeBtn">Toggle Light/Dark</button>
-  <button id="toggleViewBtn">Toggle Grid / Table View</button>
-
-  <!-- Results -->
   <div id="cardResult"></div>
 
-  <!-- Full Mapping Table -->
-  <table id="mappingTable">
-    <thead>
-      <tr>
-        <th>Tarot Card</th>
-        <th>Playing Card</th>
-        <th>Upright</th>
-        <th>Reversed</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <!-- Full Mapping Table/Grid -->
+  <div id="mappingContainer">
+    <table id="mappingTable">
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Image</th>
+          <th>Upright</th>
+          <th>Reversed</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-  <div id="gridContainer" class="grid-view" style="display:none;"></div>
+    <div id="mappingGrid" class="hidden"></div>
+  </div>
 
   <!-- Reading Mode -->
-<h2>Reading Mode</h2>
-<label for="spreadSelect">Choose a spread:</label>
-<select id="spreadSelect">
-  <option value="3">3-Card</option>
-  <option value="celtic">Celtic Cross</option>
-</select>
+  <h2>Reading Mode</h2>
+  <label for="spreadSelect">Choose a spread:</label>
+  <select id="spreadSelect">
+    <option value="3">3-Card</option>
+    <option value="celtic">Celtic Cross</option>
+  </select>
 
-<label for="deckSelect">Choose deck:</label>
-<select id="deckSelect">
-  <option value="tarot">Tarot</option>
-  <option value="playing">Playing Cards</option>
-</select>
+  <label for="deckSelect">Choose deck:</label>
+  <select id="deckSelect">
+    <option value="tarot">Tarot</option>
+    <option value="playing">Playing Cards</option>
+  </select>
 
-<label for="uprightCheck">
-  <input type="checkbox" id="uprightCheck" checked> Allow Upright/Reversed
-</label>
+  <label for="uprightCheck">
+    <input type="checkbox" id="uprightCheck" checked> Allow Upright/Reversed
+  </label>
 
-<button id="drawSpreadBtn">Draw Spread</button>
-
-<div id="spreadResult"></div>
-
+  <button id="drawSpreadBtn">Draw Spread</button>
+  <div id="spreadResult"></div>
 
   <script src="script.js"></script>
 </body>
-
+</html>

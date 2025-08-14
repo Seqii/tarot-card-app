@@ -1,4 +1,3 @@
-/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -7,7 +6,34 @@ body {
     transition: background 0.3s, color 0.3s;
   }
   
-  /* Table styling */
+  body.dark {
+    background-color: #222;
+    color: #eee;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  
+  input, select {
+    padding: 6px;
+    margin: 5px;
+  }
+  
+  #cardResult, #spreadResult {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    background: white;
+    transition: background 0.3s;
+  }
+  
+  body.dark #cardResult, body.dark #spreadResult {
+    background: #333;
+  }
+  
   table {
     width: 100%;
     border-collapse: collapse;
@@ -23,132 +49,24 @@ body {
     text-align: left;
   }
   
-  /* Search/result styling */
-  #cardResult {
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid #aaa;
-    background: white;
-  }
-  
-  input {
-    padding: 6px;
-    width: 200px;
-  }
-  
   img {
     display: block;
     margin-bottom: 5px;
+    transition: transform 0.3s;
   }
   
-  /* Dark mode */
-  body.dark {
-    background-color: #111;
-    color: #eee;
-  }
-  
-  body.dark table, 
-  body.dark th, 
-  body.dark td {
-    border-color: #555;
-  }
-  
-  body.dark #cardResult {
-    background-color: #222;
-    border-color: #555;
-  }
-  
-  /* Grid view */
-  .grid-view {
-    display: grid;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  /* Responsive columns */
-  @media (min-width: 320px) {
-    .grid-view {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  @media (min-width: 480px) {
-    .grid-view {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 768px) {
-    .grid-view {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  @media (min-width: 1024px) {
-    .grid-view {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
-  
-  /* Card styling */
-  .card {
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-  }
-  
-  .card img {
-    max-width: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .card-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Hover effect */
-  .card:hover {
+  img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
   }
   
-  .card-meaning {
-    display: none;
-    text-align: left;
-    font-size: 0.85em;
-    margin-top: 5px;
-  }
-  
-  .card:hover .card-meaning {
-    display: block;
-  }
-  
-  /* Dark mode for cards */
-  body.dark .card {
-    background: #333;
-    border-color: #555;
-    color: #eee;
-  }
-  
-  body.dark .card:hover {
-    box-shadow: 0 8px 15px rgba(255,255,255,0.1);
-  }
-  
-  /* Optional: toggle button styling */
-  button {
-    padding: 6px 12px;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-  #spreadResult {
+  /* Grid styles */
+  #mappingGrid, #spreadResult {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
-    margin-top: 15px;
   }
   
-  .spreadCard {
+  .cardItem, .spreadCard {
     padding: 10px;
     border: 1px solid #aaa;
     background: white;
@@ -156,8 +74,20 @@ body {
     transition: transform 0.3s ease, background 0.3s ease;
   }
   
-  .spreadCard:hover {
+  .cardItem:hover, .spreadCard:hover {
     transform: scale(1.05);
     background: #f0f0f0;
+  }
+  
+  body.dark .cardItem, body.dark .spreadCard {
+    background: #333;
+  }
+  
+  body.dark .cardItem:hover, body.dark .spreadCard:hover {
+    background: #444;
+  }
+  
+  .hidden {
+    display: none;
   }
   
