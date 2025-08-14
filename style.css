@@ -33,13 +33,10 @@ body {
     width: 200px;
   }
 
-  img {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  td img {
+ /* Keep card images inline with text in tables */
+#mappingTable td img {
+    display: inline-block; /* instead of block */
     vertical-align: middle;
     margin-right: 8px;
+    max-width: 50px; /* keep the size consistent */
   }
-  
