@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #fafafa;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #cardResult {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #aaa;
+    background: white;
+  }
+  
+  input {
+    padding: 6px;
+    width: 200px;
+  }
+  
+  img {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
