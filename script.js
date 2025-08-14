@@ -1,25 +1,79 @@
 let cardData = [];
+let isGridView = false; // toggle between table and grid
+let isDarkMode = false;
 
 // Load JSON data
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
     cardData = data;
-    populateTable();
+    populateTable(); // default view
   });
 
+// Populate table view
 function populateTable() {
   const tbody = document.querySelector("#mappingTable tbody");
   tbody.innerHTML = "";
   cardData.forEach(card => {
     const row = `<tr>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"> ${card.tarot}</td>
-      <td><img src="${card.image}" alt="${card.playing}" style="max-width:50px"> ${card.playing}</td>
+      <td>${card.tarot}<br>-<br>${card.playing}</td>
+      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"></td>
       <td>${card.upright}</td>
       <td>${card.reversed}</td>
     </tr>`;
     tbody.innerHTML += row;
   });
+}
+
+// Populate grid view
+function populateGrid() {
+  const table = document.getElementById("mappingTable");
+  table.style.display = "none"; // hide table
+  let gridContainer = document.getElementById("gridContainer");
+
+  // Create container if doesn't exist
+  if (!gridContainer) {
+    gridContainer = document.createElement("div");
+    gridContainer.id = "gridContainer";
+    gridContainer.className = "grid-view";
+    document.body.appendChild(gridContainer);
+  }
+  gridContainer.innerHTML = "";
+
+  cardData.forEach(card => {
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "card";
+    cardDiv.innerHTML = `
+      <img src="${card.image}" alt="${card.tarot}">
+      <div class="card-name">${card.tarot} - ${card.playing}</div>
+      <div class="card-meaning">
+        <strong>Upright:</strong> ${card.upright}<br>
+        <strong>Reversed:</strong> ${card.reversed}
+      </div>
+    `;
+    gridContainer.appendChild(cardDiv);
+  });
+}
+
+// Toggle view button
+function toggleView() {
+  isGridView = !isGridView;
+  const table = document.getElementById("mappingTable");
+  const gridContainer = document.getElementById("gridContainer");
+  
+  if (isGridView) {
+    table.style.display = "none";
+    populateGrid();
+  } else {
+    table.style.display = "table";
+    if (gridContainer) gridContainer.style.display = "none";
+  }
+}
+
+// Toggle dark/light mode
+function toggleDarkMode() {
+  isDarkMode = !isDarkMode;
+  document.body.classList.toggle("dark", isDarkMode);
 }
 
 // Search functionality
@@ -54,3 +108,16 @@ document.getElementById('randomBtn').addEventListener('click', function() {
     <strong>Reversed:</strong> ${randomCard.reversed}
   `;
 });
+
+// --- Optional: add buttons to toggle grid/table and dark/light ---
+
+const controls = document.createElement("div");
+controls.style.marginTop = "10px";
+controls.innerHTML = `
+  <button id="viewToggleBtn">Toggle Grid/Table View</button>
+  <button id="themeToggleBtn">Toggle Dark/Light Mode</button>
+`;
+document.body.insertBefore(controls, document.getElementById("mappingTable"));
+
+document.getElementById("viewToggleBtn").addEventListener("click", toggleView);
+document.getElementById("themeToggleBtn").addEventListener("click", toggleDarkMode);
