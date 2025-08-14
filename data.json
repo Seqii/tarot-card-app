@@ -29,7 +29,7 @@
     },
     {
       "tarot": "The Emperor",
-      "playing": "4 of Diamonds",
+      "playing": "4 of Pentacles",
       "upright": "Authority, structure. \nPast: Achieving stability or leadership. \nPresent: Exercising control or discipline. \nFuture: Foundations being built for lasting security.",
       "reversed": "Domination, rigidity. \nPast: Excess control or authoritarian behavior. \nPresent: Struggling with flexibility. \nFuture: Potential for overbearing influence or restriction.",
       "image": "images/04-TheEmperor.png"
@@ -50,7 +50,7 @@
     },
     {
       "tarot": "The Chariot",
-      "playing": "7 of Spades",
+      "playing": "7 of Swords",
       "upright": "Control, willpower. \nPast: Overcoming obstacles through determination. \nPresent: Staying focused to achieve goals. \nFuture: Triumph through discipline and persistence.",
       "reversed": "Lack of direction. \nPast: Losing control of circumstances. \nPresent: Feeling aimless or blocked. \nFuture: Potential failure if goals aren’t clear.",
       "image": "images/07-TheChariot.png"
@@ -64,42 +64,42 @@
     },
     {
       "tarot": "The Hermit",
-      "playing": "9 of Diamonds",
+      "playing": "9 of Pentacles",
       "upright": "Soul-searching, solitude. \nPast: Time spent reflecting and learning. \nPresent: Seeking answers within. \nFuture: Guidance and wisdom through introspection.",
       "reversed": "Isolation, loneliness. \nPast: Separation from others. \nPresent: Feeling disconnected or withdrawn. \nFuture: Potential for loneliness if social connections are neglected.",
       "image": "images/09-TheHermit.png"
     },
     {
       "tarot": "Wheel of Fortune",
-      "playing": "10 of Diamonds",
+      "playing": "10 of Pentacles",
       "upright": "Change, luck. \nPast: Experiencing shifts in fortune. \nPresent: Cycles of opportunity and challenge. \nFuture: New phases and unexpected events approaching.",
       "reversed": "Bad luck, resistance. \nPast: Misfortune or missed chances. \nPresent: Resisting change. \nFuture: Obstacles or delays if adaptability is lacking.",
       "image": "images/10-WheelOfFortune.png"
     },
     {
       "tarot": "Justice",
-      "playing": "Queen of Spades",
+      "playing": "Queen of Swords",
       "upright": "Fairness, truth. \nPast: Accountability or decisions made justly. \nPresent: Evaluating situations objectively. \nFuture: Outcomes based on honesty and integrity.",
       "reversed": "Dishonesty, unfairness. \nPast: Biased or unjust actions. \nPresent: Deception or imbalance. \nFuture: Consequences from unethical choices.",
       "image": "images/11-Justice.png"
     },
     {
       "tarot": "The Hanged Man",
-      "playing": "Jack of Spades",
+      "playing": "Jack of Swords",
       "upright": "Pause, surrender. \nPast: Letting go to gain perspective. \nPresent: Accepting delays or reflection. \nFuture: Growth through patience and new viewpoints.",
       "reversed": "Resistance, stalling. \nPast: Avoiding necessary change. \nPresent: Inaction or indecision. \nFuture: Missed opportunities due to refusal to adapt.",
       "image": "images/12-TheHangedMan.png"
     },
     {
       "tarot": "Death",
-      "playing": "King of Spades",
+      "playing": "King of Swords",
       "upright": "Endings, transformation. \nPast: Releasing what no longer serves you. \nPresent: Embracing necessary change. \nFuture: New beginnings after transformation.",
       "reversed": "Fear of change. \nPast: Clinging to the old. \nPresent: Difficulty letting go. \nFuture: Stagnation if transitions aren’t embraced.",
       "image": "images/13-Death.png"
     },
     {
       "tarot": "Temperance",
-      "playing": "2 of Diamonds",
+      "playing": "2 of Pentacles",
       "upright": "Balance, moderation. \nPast: Harmonizing opposing forces. \nPresent: Seeking equilibrium. \nFuture: Integrating lessons for long-term stability.",
       "reversed": "Imbalance, excess. \nPast: Overindulgence or extremes. \nPresent: Struggling to find middle ground. \nFuture: Potential burnout or conflict from excess.",
       "image": "images/14-Temperance.png"
@@ -113,14 +113,14 @@
     },
     {
       "tarot": "The Tower",
-      "playing": "5 of Spades",
+      "playing": "5 of Swords",
       "upright": "Sudden upheaval. \nPast: Shocking events that changed your course. \nPresent: Unexpected disruption. \nFuture: Radical transformation may be necessary.",
       "reversed": "Disaster avoided. \nPast: Near misses or warnings ignored. \nPresent: Risk mitigated or delayed. \nFuture: Opportunity to rebuild stronger foundations.",
       "image": "images/16-TheTower.png"
     },
     {
       "tarot": "The Star",
-      "playing": "7 of Diamonds",
+      "playing": "7 of Pentacles",
       "upright": "Hope, inspiration. \nPast: Renewal and healing. \nPresent: Optimism and guidance. \nFuture: Faith and rejuvenation leading forward.",
       "reversed": "Despair, discouragement. \nPast: Lost hope or setbacks. \nPresent: Feeling uninspired. \nFuture: Risk of discouragement if optimism isn’t nurtured.",
       "image": "images/17-TheStar.png"
@@ -141,7 +141,7 @@
     },
     {
       "tarot": "Judgement",
-      "playing": "20 of Diamonds",
+      "playing": "20 of Pentacles",
       "upright": "Rebirth, inner calling. \nPast: Awakening or important realizations. \nPresent: Evaluating actions and purpose. \nFuture: Transformation through self-awareness.",
       "reversed": "Self-doubt, refusal. \nPast: Ignoring inner guidance. \nPresent: Hesitation or denial. \nFuture: Resistance to necessary change.",
       "image": "images/20-Judgement.png"
@@ -351,199 +351,199 @@
       },
       {
         "tarot": "Ace of Swords",
-        "playing": "Ace of Spades",
+        "playing": "Ace of Swords",
         "upright": "Breakthrough, clarity. \nPast: Moments of insight or truth revealed. \nPresent: Clear thinking and decisive action. \nFuture: Mental clarity and new understanding ahead.",
         "reversed": "Confusion, chaos. \nPast: Misunderstandings or lack of direction. \nPresent: Mental blocks or uncertainty. \nFuture: Potential for misunderstanding or disorder.",
-        "image": "images/Spades01.png"
+        "image": "images/Swords01.png"
       },
       {
         "tarot": "Two of Swords",
-        "playing": "2 of Spades",
+        "playing": "2 of Swords",
         "upright": "Decisions, stalemate. \nPast: Past choices requiring careful thought. \nPresent: Weighing options and seeking balance. \nFuture: Important decisions that will shape outcomes.",
         "reversed": "Indecision, lies. \nPast: Avoided decisions or dishonesty. \nPresent: Confusion or avoidance. \nFuture: Risk of deception or poor choices.",
-        "image": "images/Spades02.png"
+        "image": "images/Swords02.png"
       },
       {
         "tarot": "Three of Swords",
-        "playing": "3 of Spades",
+        "playing": "3 of Swords",
         "upright": "Heartbreak, sorrow. \nPast: Emotional pain or loss experienced. \nPresent: Processing grief or disappointment. \nFuture: Healing and understanding from emotional lessons.",
         "reversed": "Releasing pain. \nPast: Overcoming heartbreak. \nPresent: Letting go of emotional burdens. \nFuture: Emotional renewal and moving on.",
-        "image": "images/Spades03.png"
+        "image": "images/Swords03.png"
       },
       {
         "tarot": "Four of Swords",
-        "playing": "4 of Spades",
+        "playing": "4 of Swords",
         "upright": "Rest, recovery. \nPast: Recuperation after stress or struggle. \nPresent: Taking time to recharge mentally and emotionally. \nFuture: Opportunity for reflection and renewed energy.",
         "reversed": "Restlessness, burnout. \nPast: Neglecting rest or reflection. \nPresent: Feeling overwhelmed or drained. \nFuture: Risk of exhaustion if recovery isn’t prioritized.",
-        "image": "images/Spades04.png"
+        "image": "images/Swords04.png"
       },
       {
         "tarot": "Five of Swords",
-        "playing": "5 of Spades",
+        "playing": "5 of Swords",
         "upright": "Conflict, defeat. \nPast: Past arguments or challenging encounters. \nPresent: Dealing with disagreements or competition. \nFuture: Lessons from conflict leading to wiser choices.",
         "reversed": "Reconciliation. \nPast: Making amends or letting go of grudges. \nPresent: Seeking harmony and resolution. \nFuture: Opportunities to mend relationships.",
-        "image": "images/Spades05.png"
+        "image": "images/Swords05.png"
       },
       {
         "tarot": "Six of Swords",
-        "playing": "6 of Spades",
+        "playing": "6 of Swords",
         "upright": "Transition, change. \nPast: Moving away from difficult situations. \nPresent: Adjustment or journey toward stability. \nFuture: Smooth progression into calmer circumstances.",
         "reversed": "Resistance, stuck. \nPast: Struggling to leave behind difficulties. \nPresent: Feeling trapped or reluctant to move on. \nFuture: Potential delays or stagnation.",
-        "image": "images/Spades06.png"
+        "image": "images/Swords06.png"
       },
       {
         "tarot": "Seven of Swords",
-        "playing": "7 of Spades",
+        "playing": "7 of Swords",
         "upright": "Deception, strategy. \nPast: Cleverness or secrecy applied effectively. \nPresent: Planning or maneuvering carefully. \nFuture: Need for tact and discretion in actions.",
         "reversed": "Confession, turning over. \nPast: Lies revealed or mistakes admitted. \nPresent: Coming clean or facing consequences. \nFuture: Potential resolution through honesty.",
-        "image": "images/Spades07.png"
+        "image": "images/Swords07.png"
       },
       {
         "tarot": "Eight of Swords",
-        "playing": "8 of Spades",
+        "playing": "8 of Swords",
         "upright": "Restriction, fear. \nPast: Feeling trapped or limited. \nPresent: Mental constraints or anxiety. \nFuture: Breaking free from limiting beliefs.",
         "reversed": "Freedom, release. \nPast: Overcoming restrictions. \nPresent: Finding liberation or solutions. \nFuture: Opportunities for independence and clarity.",
-        "image": "images/Spades08.png"
+        "image": "images/Swords08.png"
       },
       {
         "tarot": "Nine of Swords",
-        "playing": "9 of Spades",
+        "playing": "9 of Swords",
         "upright": "Anxiety, worry. \nPast: Past fears or sleepless nights. \nPresent: Mental stress or overthinking. \nFuture: Facing fears and finding coping strategies.",
         "reversed": "Hope, coping. \nPast: Learning to manage worry. \nPresent: Gaining perspective and resilience. \nFuture: Reduced anxiety through preparedness.",
-        "image": "images/Spades09.png"
+        "image": "images/Swords09.png"
       },
       {
         "tarot": "Ten of Swords",
-        "playing": "10 of Spades",
+        "playing": "10 of Swords",
         "upright": "Ruin, betrayal. \nPast: Endings or painful experiences. \nPresent: Accepting completion or finality. \nFuture: Renewal after loss or hardship.",
         "reversed": "Recovery, regeneration. \nPast: Healing from betrayal. \nPresent: Rebuilding or regaining strength. \nFuture: Opportunities for restoration and growth.",
-        "image": "images/Spades10.png"
+        "image": "images/Swords10.png"
       },
       {
         "tarot": "Page of Swords",
-        "playing": "Jack of Spades",
+        "playing": "Jack of Swords",
         "upright": "Curiosity, vigilance. \nPast: Learning or observation. \nPresent: Staying alert and gathering information. \nFuture: Mental agility and readiness for challenges.",
         "reversed": "Deception, manipulation. \nPast: Misguided curiosity or dishonesty. \nPresent: Risk of trickery or misunderstanding. \nFuture: Potential for misinformation or misjudgment.",
-        "image": "images/Spades11.png"
+        "image": "images/Swords11.png"
       },
       {
         "tarot": "Knight of Swords",
-        "playing": "Jack of Spades",
+        "playing": "Jack of Swords",
         "upright": "Action, ambition. \nPast: Bold moves and assertiveness. \nPresent: Pursuing goals with determination. \nFuture: Rapid progress and achievement through effort.",
         "reversed": "Recklessness, impulsiveness. \nPast: Hasty decisions causing problems. \nPresent: Acting without caution. \nFuture: Potential setbacks due to impulsivity.",
-        "image": "images/Spades12.png"
+        "image": "images/Swords12.png"
       },
       {
         "tarot": "Queen of Swords",
-        "playing": "Queen of Spades",
+        "playing": "Queen of Swords",
         "upright": "Perceptive, independent. \nPast: Learned lessons through intellect. \nPresent: Clear thinking and objective judgment. \nFuture: Wisdom guiding decisions and communication.",
         "reversed": "Cold, cruel. \nPast: Detachment or harshness. \nPresent: Overly critical or distant behavior. \nFuture: Potential strain in relationships due to rigidity.",
-        "image": "images/Spades13.png"
+        "image": "images/Swords13.png"
       },
       {
         "tarot": "King of Swords",
-        "playing": "King of Spades",
+        "playing": "King of Swords",
         "upright": "Truth, authority. \nPast: Exercising fairness and insight. \nPresent: Leading with clarity and logic. \nFuture: Strategic mastery and influence.",
         "reversed": "Manipulative, abusive. \nPast: Using power unfairly. \nPresent: Risk of controlling others. \nFuture: Potential conflicts from misuse of authority.",
-        "image": "images/Spades14.png"
+        "image": "images/Swords14.png"
       },
       {
         "tarot": "Ace of Pentacles",
-        "playing": "Ace of Diamonds",
+        "playing": "Ace of Pentacles",
         "upright": "Prosperity, new beginnings. \nPast: Past financial or career opportunities. \nPresent: New ventures or material prospects. \nFuture: Growth, abundance, and manifestation ahead.",
         "reversed": "Lost opportunities. \nPast: Missed chances or wasted resources. \nPresent: Blocked progress or instability. \nFuture: Potential setbacks if action isn’t taken.",
-        "image": "images/Diamonds01.png"
+        "image": "images/Pentacles01.png"
       },
       {
         "tarot": "Two of Pentacles",
-        "playing": "2 of Diamonds",
+        "playing": "2 of Pentacles",
         "upright": "Balance, adaptability. \nPast: Juggling responsibilities effectively. \nPresent: Managing priorities with flexibility. \nFuture: Maintaining harmony amid change.",
         "reversed": "Disorganization. \nPast: Struggled to balance tasks. \nPresent: Feeling overwhelmed. \nFuture: Risk of instability if management fails.",
-        "image": "images/Diamonds02.png"
+        "image": "images/Pentacles02.png"
       },
       {
         "tarot": "Three of Pentacles",
-        "playing": "3 of Diamonds",
+        "playing": "3 of Pentacles",
         "upright": "Teamwork, collaboration. \nPast: Successful cooperation or learning. \nPresent: Working well with others to achieve goals. \nFuture: Recognition for joint efforts or skilled work.",
         "reversed": "Lack of teamwork. \nPast: Failed collaborations. \nPresent: Conflicts or poor coordination. \nFuture: Challenges achieving goals alone.",
-        "image": "images/Diamonds03.png"
+        "image": "images/Pentacles03.png"
       },
       {
         "tarot": "Four of Pentacles",
-        "playing": "4 of Diamonds",
+        "playing": "4 of Pentacles",
         "upright": "Control, stability. \nPast: Achieving security through careful management. \nPresent: Maintaining possessions or stability. \nFuture: Long-term planning and protective measures.",
         "reversed": "Greed, possessiveness. \nPast: Hoarding or reluctance to share. \nPresent: Fear of loss or over-attachment. \nFuture: Risk of isolation or missed opportunities due to rigidity.",
-        "image": "images/Diamonds04.png"
+        "image": "images/Pentacles04.png"
       },
       {
         "tarot": "Five of Pentacles",
-        "playing": "5 of Diamonds",
+        "playing": "5 of Pentacles",
         "upright": "Hardship, loss. \nPast: Experiences of struggle or lack. \nPresent: Feeling left out or challenged materially. \nFuture: Need to seek support or adapt.",
         "reversed": "Recovery, charity. \nPast: Overcoming adversity. \nPresent: Receiving help or rebuilding. \nFuture: Opportunities for support and renewal.",
-        "image": "images/Diamonds05.png"
+        "image": "images/Pentacles05.png"
       },
       {
         "tarot": "Six of Pentacles",
-        "playing": "6 of Diamonds",
+        "playing": "6 of Pentacles",
         "upright": "Generosity, sharing. \nPast: Receiving or giving support. \nPresent: Balancing giving and receiving. \nFuture: Positive outcomes from equitable actions.",
         "reversed": "Selfishness, debt. \nPast: Mismanaged resources. \nPresent: Imbalance in giving or receiving. \nFuture: Risk of strained relationships or obligations.",
-        "image": "images/Diamonds06.png"
+        "image": "images/Pentacles06.png"
       },
       {
         "tarot": "Seven of Pentacles",
-        "playing": "7 of Diamonds",
+        "playing": "7 of Pentacles",
         "upright": "Perseverance, investment. \nPast: Effort put into long-term goals. \nPresent: Evaluating progress and outcomes. \nFuture: Rewards from patience and continued dedication.",
         "reversed": "Impatience, loss. \nPast: Rushed or abandoned efforts. \nPresent: Frustration with slow progress. \nFuture: Risk of wasted effort if persistence isn’t maintained.",
-        "image": "images/Diamonds07.png"
+        "image": "images/Pentacles07.png"
       },
       {
         "tarot": "Eight of Pentacles",
-        "playing": "8 of Diamonds",
+        "playing": "8 of Pentacles",
         "upright": "Diligence, skill. \nPast: Focused learning or mastery. \nPresent: Hard work and refinement of abilities. \nFuture: Achievements through commitment and skill.",
         "reversed": "Lack of focus. \nPast: Neglecting responsibilities. \nPresent: Poor attention to detail. \nFuture: Limited growth without dedicated effort.",
-        "image": "images/Diamonds08.png"
+        "image": "images/Pentacles08.png"
       },
       {
         "tarot": "Nine of Pentacles",
-        "playing": "9 of Diamonds",
+        "playing": "9 of Pentacles",
         "upright": "Abundance, luxury. \nPast: Enjoying material or personal success. \nPresent: Self-sufficiency and comfort. \nFuture: Prosperity and independence ahead.",
         "reversed": "Overindulgence. \nPast: Excess or mismanagement. \nPresent: Complacency or greed. \nFuture: Risk of losing stability or balance.",
-        "image": "images/Diamonds09.png"
+        "image": "images/Pentacles09.png"
       },
       {
         "tarot": "Ten of Pentacles",
-        "playing": "10 of Diamonds",
+        "playing": "10 of Pentacles",
         "upright": "Wealth, legacy. \nPast: Establishing foundations for family or career. \nPresent: Security and long-term stability. \nFuture: Generational impact and lasting success.",
         "reversed": "Financial failure. \nPast: Losses or missteps. \nPresent: Instability or insecurity. \nFuture: Challenges to long-term goals if lessons aren’t applied.",
-        "image": "images/Diamonds10.png"
+        "image": "images/Pentacles10.png"
       },
       {
         "tarot": "Page of Pentacles",
-        "playing": "Jack of Diamonds",
+        "playing": "Jack of Pentacles",
         "upright": "Manifestation, ambition. \nPast: Early ventures or learning experiences. \nPresent: Setting goals and exploring opportunities. \nFuture: Growth through practical effort and curiosity.",
         "reversed": "Lack of commitment. \nPast: Unfocused or abandoned projects. \nPresent: Difficulty following through. \nFuture: Risk of wasted potential without focus.",
-        "image": "images/Diamonds11.png"
+        "image": "images/Pentacles11.png"
       },
       {
         "tarot": "Knight of Pentacles",
-        "playing": "Jack of Diamonds",
+        "playing": "Jack of Pentacles",
         "upright": "Efficiency, routine. \nPast: Steady progress through diligence. \nPresent: Consistency and reliability in tasks. \nFuture: Continued success through persistence.",
         "reversed": "Laziness, stagnation. \nPast: Missed opportunities due to inaction. \nPresent: Lack of motivation or slow progress. \nFuture: Risk of falling behind if effort isn’t sustained.",
-        "image": "images/Diamonds12.png"
+        "image": "images/Pentacles12.png"
       },
       {
         "tarot": "Queen of Pentacles",
-        "playing": "Queen of Diamonds",
+        "playing": "Queen of Pentacles",
         "upright": "Practicality, nurture. \nPast: Building stability through care and responsibility. \nPresent: Providing support and practical solutions. \nFuture: Prosperity and security for self and others.",
         "reversed": "Self-care neglect. \nPast: Overextending or ignoring needs. \nPresent: Struggle balancing responsibilities. \nFuture: Potential burnout without attention to well-being.",
-        "image": "images/Diamonds13.png"
+        "image": "images/Pentacles13.png"
       },
       {
         "tarot": "King of Pentacles",
-        "playing": "King of Diamonds",
+        "playing": "King of Pentacles",
         "upright": "Security, leadership. \nPast: Establishing strong foundations. \nPresent: Leading with confidence and resourcefulness. \nFuture: Achieving long-term stability and influence.",
         "reversed": "Materialism, stubbornness. \nPast: Overfocus on wealth or status. \nPresent: Resistance to change or collaboration. \nFuture: Risk of losing balance or relationships due to rigidity.",
-        "image": "images/Diamonds14.png"
+        "image": "images/Pentacles14.png"
       }
   ]
   
