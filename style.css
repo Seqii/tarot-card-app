@@ -38,3 +38,8 @@ body {
     margin-bottom: 5px;
   }
   
+  td img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  

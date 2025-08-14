@@ -8,19 +8,22 @@ fetch('data.json')
     populateTable();
   });
 
-function populateTable() {
-  const tbody = document.querySelector("#mappingTable tbody");
-  tbody.innerHTML = "";
-  cardData.forEach(card => {
-    const row = `<tr>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"> ${card.tarot}</td>
-      <td><img src="${card.image}" alt="${card.playing}" style="max-width:50px"> ${card.playing}</td>
-      <td>${card.upright}</td>
-      <td>${card.reversed}</td>
-    </tr>`;
-    tbody.innerHTML += row;
-  });
-}
+  function populateTable() {
+    const tbody = document.querySelector("#mappingTable tbody");
+    tbody.innerHTML = "";
+    cardData.forEach(card => {
+      const row = `<tr>
+        <td>
+          <img src="${card.image}" alt="${card.tarot}" style="max-width:50px; vertical-align:middle">
+          ${card.tarot} / ${card.playing}
+        </td>
+        <td>—</td> <!-- Keep second column empty or remove it -->
+        <td>${card.upright}</td>
+        <td>${card.reversed}</td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
 
 // Search functionality
 document.getElementById('search').addEventListener('input', function() {
