@@ -6,15 +6,21 @@ fetch('data.json')
   .then(data => {
     cardData = data;
     populateTable();
+    populateGrid();
+    applySavedView();
+    applySavedTheme();
   });
 
+// -------------------------
+// Populate Table
+// -------------------------
 function populateTable() {
   const tbody = document.querySelector("#mappingTable tbody");
   tbody.innerHTML = "";
   cardData.forEach(card => {
     const row = `<tr>
       <td>${card.tarot} - ${card.playing}</td>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"></td>
+      <td><img src="${card.image}" alt="${card.playing}" style="max-width:50px"></td>
       <td>${card.upright}</td>
       <td>${card.reversed}</td>
     </tr>`;
@@ -22,7 +28,31 @@ function populateTable() {
   });
 }
 
-// Search functionality
+// -------------------------
+// Populate Grid
+// -------------------------
+function populateGrid() {
+  const grid = document.getElementById("cardGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+  cardData.forEach(card => {
+    const cardEl = document.createElement("div");
+    cardEl.className = "card";
+    cardEl.innerHTML = `
+      <img src="${card.image}" alt="${card.tarot}">
+      <div class="card-name">${card.tarot} - ${card.playing}</div>
+      <div class="card-meaning">
+        <strong>Upright:</strong> ${card.upright}<br>
+        <strong>Reversed:</strong> ${card.reversed}
+      </div>
+    `;
+    grid.appendChild(cardEl);
+  });
+}
+
+// -------------------------
+// Search Functionality
+// -------------------------
 document.getElementById('search').addEventListener('input', function() {
   const query = this.value.toLowerCase();
   const result = cardData.find(card =>
@@ -43,7 +73,9 @@ document.getElementById('search').addEventListener('input', function() {
   }
 });
 
-// Random card button
+// -------------------------
+// Random Card
+// -------------------------
 document.getElementById('randomBtn').addEventListener('click', function() {
   const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
   document.getElementById('cardResult').innerHTML = `
@@ -55,96 +87,53 @@ document.getElementById('randomBtn').addEventListener('click', function() {
   `;
 });
 
-// Theme toggle
-const themeBtn = document.getElementById('themeBtn');
+// -------------------------
+// View Toggle (Table / Grid)
+// -------------------------
+document.getElementById("toggleViewBtn").addEventListener("click", () => {
+  const table = document.getElementById("mappingTable");
+  const grid = document.getElementById("cardGrid");
 
-// Apply saved theme on load
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-  themeBtn.textContent = "Switch to Light";
-} else {
-  themeBtn.textContent = "Switch to Dark";
+  table.classList.toggle("hidden");
+  grid.classList.toggle("hidden");
+
+  // Save current view
+  if (grid.classList.contains("hidden")) {
+    localStorage.setItem("cardView", "table");
+  } else {
+    localStorage.setItem("cardView", "grid");
+  }
+});
+
+// Apply saved view on load
+function applySavedView() {
+  const savedView = localStorage.getItem("cardView") || "table";
+  const table = document.getElementById("mappingTable");
+  const grid = document.getElementById("cardGrid");
+
+  if (savedView === "grid") {
+    table.classList.add("hidden");
+    grid.classList.remove("hidden");
+  } else {
+    table.classList.remove("hidden");
+    grid.classList.add("hidden");
+  }
 }
 
-// Toggle theme on click
-themeBtn.addEventListener('click', function() {
-  document.body.classList.toggle('dark');
-
-  if (document.body.classList.contains('dark')) {
-    localStorage.setItem('theme', 'dark');
-    themeBtn.textContent = "Switch to Light";
-  } else {
-    localStorage.setItem('theme', 'light');
-    themeBtn.textContent = "Switch to Dark";
-  }
+// -------------------------
+// Theme Toggle (Light / Dark)
+// -------------------------
+document.getElementById("themeToggleBtn").addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  const theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+  localStorage.setItem("theme", theme);
 });
 
-
-//GRID TOGGLE 9
-
-const toggleBtn = document.getElementById('toggleViewBtn');
-const table = document.getElementById('mappingTable');
-const gridContainer = document.getElementById('gridContainer');
-
-toggleBtn.addEventListener('click', () => {
-  if (gridContainer.style.display === 'none') {
-    // Show grid, hide table
-    table.style.display = 'none';
-    gridContainer.style.display = 'grid';
-    toggleBtn.textContent = 'Switch to Table View';
-    populateGrid();
+function applySavedTheme() {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
   } else {
-    // Show table, hide grid
-    table.style.display = 'table';
-    gridContainer.style.display = 'none';
-    toggleBtn.textContent = 'Switch to Grid View';
+    document.body.classList.remove("dark-theme");
   }
-});
-
-//store view
-// On page load, set the view based on localStorage
-window.addEventListener("DOMContentLoaded", () => {
-    const savedView = localStorage.getItem("cardView") || "table";
-  
-    if (savedView === "grid") {
-      document.getElementById("mappingTable").classList.add("hidden");
-      document.getElementById("cardGrid").classList.remove("hidden");
-    } else {
-      document.getElementById("mappingTable").classList.remove("hidden");
-      document.getElementById("cardGrid").classList.add("hidden");
-    }
-  });
-  
-  // Toggle button
-  document.getElementById("toggleViewBtn").addEventListener("click", () => {
-    const table = document.getElementById("mappingTable");
-    const grid = document.getElementById("cardGrid");
-  
-    table.classList.toggle("hidden");
-    grid.classList.toggle("hidden");
-  
-    // Save current view
-    if (grid.classList.contains("hidden")) {
-      localStorage.setItem("cardView", "table");
-    } else {
-      localStorage.setItem("cardView", "grid");
-    }
-  });
-  
-
-function populateGrid() {
-  gridContainer.innerHTML = '';
-  cardData.forEach(card => {
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-    cardDiv.innerHTML = `
-      <img src="${card.image}" alt="${card.tarot}">
-      <div class="card-name">${card.tarot} - ${card.playing}</div>
-      <div class="card-meaning">
-        <strong>Upright:</strong> ${card.upright}<br>
-        <strong>Reversed:</strong> ${card.reversed}
-      </div>
-    `;
-    gridContainer.appendChild(cardDiv);
-  });
 }
