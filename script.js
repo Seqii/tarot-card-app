@@ -8,22 +8,33 @@ fetch('data.json')
     populateTable();
   });
 
-  function populateTable() {
-    const tbody = document.querySelector("#mappingTable tbody");
-    tbody.innerHTML = "";
-    cardData.forEach(card => {
-      const row = `<tr>
-        <td>
-          <img src="${card.image}" alt="${card.tarot}" style="max-width:50px; vertical-align:middle">
-          ${card.tarot} / ${card.playing}
-        </td>
-        <td>—</td> <!-- Keep second column empty or remove it -->
-        <td>${card.upright}</td>
-        <td>${card.reversed}</td>
-      </tr>`;
-      tbody.innerHTML += row;
-    });
-  }
+// Populate the full mapping table
+function populateTable() {
+  const tbody = document.querySelector("#mappingTable tbody");
+  tbody.innerHTML = "";
+  cardData.forEach(card => {
+    const row = `<tr>
+      <td>
+        <img src="${card.image}" alt="${card.tarot}" style="max-width:50px">
+        ${card.tarot} / ${card.playing}
+      </td>
+      <td>—</td>
+      <td>${card.upright}</td>
+      <td>${card.reversed}</td>
+    </tr>`;
+    tbody.innerHTML += row;
+  });
+}
+
+// Display a card in the result area
+function showCard(card) {
+  document.getElementById('cardResult').innerHTML = `
+    <img src="${card.image}" alt="${card.tarot}" style="max-width:150px"><br>
+    <strong>Card:</strong> ${card.tarot} / ${card.playing} <br>
+    <strong>Upright:</strong> ${card.upright} <br>
+    <strong>Reversed:</strong> ${card.reversed}
+  `;
+}
 
 // Search functionality
 document.getElementById('search').addEventListener('input', function() {
@@ -33,27 +44,12 @@ document.getElementById('search').addEventListener('input', function() {
     card.playing.toLowerCase() === query
   );
 
-  if (result) {
-    document.getElementById('cardResult').innerHTML = `
-      <img src="${result.image}" alt="${result.tarot}" style="max-width:150px"><br>
-      <strong>Tarot:</strong> ${result.tarot} <br>
-      <strong>Playing:</strong> ${result.playing} <br>
-      <strong>Upright:</strong> ${result.upright} <br>
-      <strong>Reversed:</strong> ${result.reversed}
-    `;
-  } else {
-    document.getElementById('cardResult').innerHTML = "No match found.";
-  }
+  if (result) showCard(result);
+  else document.getElementById('cardResult').innerHTML = "No match found.";
 });
 
 // Random card button
 document.getElementById('randomBtn').addEventListener('click', function() {
   const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
-  document.getElementById('cardResult').innerHTML = `
-    <img src="${randomCard.image}" alt="${randomCard.tarot}" style="max-width:150px"><br>
-    <strong>Tarot:</strong> ${randomCard.tarot} <br>
-    <strong>Playing:</strong> ${randomCard.playing} <br>
-    <strong>Upright:</strong> ${randomCard.upright} <br>
-    <strong>Reversed:</strong> ${randomCard.reversed}
-  `;
+  showCard(randomCard);
 });
