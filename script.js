@@ -1,56 +1,35 @@
-let cardData = [];
-
-// Load JSON data
-fetch('data.json')
+fetch('cards.json')
   .then(response => response.json())
-  .then(data => {
-    cardData = data;
-    populateTable();
-  });
+  .then(cards => {
+    const container = document.getElementById('card-container');
 
-function populateTable() {
-  const tbody = document.querySelector("#mappingTable tbody");
-  tbody.innerHTML = "";
-  cardData.forEach(card => {
-    const row = `<tr>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"> ${card.tarot}</td>
-      <td><img src="${card.image}" alt="${card.playing}" style="max-width:50px"> ${card.playing}</td>
-      <td>${card.upright}</td>
-      <td>${card.reversed}</td>
-    </tr>`;
-    tbody.innerHTML += row;
-  });
-}
+    cards.forEach(card => {
+      const row = document.createElement('div');
+      row.className = 'card-row';
 
-// Search functionality
-document.getElementById('search').addEventListener('input', function() {
-  const query = this.value.toLowerCase();
-  const result = cardData.find(card =>
-    card.tarot.toLowerCase() === query ||
-    card.playing.toLowerCase() === query
-  );
+      const img = document.createElement('img');
+      img.src = 'images/' + card.image; // make sure this matches your PNG filenames
+      img.alt = card.tarot;
+      img.className = 'card-image';
 
-  if (result) {
-    document.getElementById('cardResult').innerHTML = `
-      <img src="${result.image}" alt="${result.tarot}" style="max-width:150px"><br>
-      <strong>Tarot:</strong> ${result.tarot} <br>
-      <strong>Playing:</strong> ${result.playing} <br>
-      <strong>Upright:</strong> ${result.upright} <br>
-      <strong>Reversed:</strong> ${result.reversed}
-    `;
-  } else {
-    document.getElementById('cardResult').innerHTML = "No match found.";
-  }
-});
+      const info = document.createElement('div');
+      info.className = 'card-info';
 
-// Random card button
-document.getElementById('randomBtn').addEventListener('click', function() {
-  const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
-  document.getElementById('cardResult').innerHTML = `
-    <img src="${randomCard.image}" alt="${randomCard.tarot}" style="max-width:150px"><br>
-    <strong>Tarot:</strong> ${randomCard.tarot} <br>
-    <strong>Playing:</strong> ${randomCard.playing} <br>
-    <strong>Upright:</strong> ${randomCard.upright} <br>
-    <strong>Reversed:</strong> ${randomCard.reversed}
-  `;
-});
+      const names = document.createElement('p');
+      names.className = 'card-names';
+      names.textContent = `${card.tarot} / ${card.playing}`;
+
+      const meaning = document.createElement('p');
+      meaning.className = 'card-meaning';
+      meaning.textContent = card.upright.split('\n')[0]; // first line of upright meaning
+
+      info.appendChild(names);
+      info.appendChild(meaning);
+
+      row.appendChild(img);
+      row.appendChild(info);
+
+      container.appendChild(row);
+    });
+  })
+  .catch(err => console.error('Error loading JSON:', err));
