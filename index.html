@@ -8,54 +8,36 @@
 <body>
   <h1>Tarot ↔ Playing Card Converter</h1>
 
-  <!-- Theme Toggle -->
-  <button id="themeToggle">Toggle Theme</button>
-
-  <!-- View Toggle -->
-  <button id="viewToggle">Toggle Grid/Table View</button>
-
-  <!-- Search / Lookup -->
-  <input type="text" id="search" placeholder="Search for a card...">
-  <button id="randomBtn">Draw Random Card</button>
-  <div id="cardResult"></div>
-
-  <!-- Full Mapping Table/Grid -->
-  <div id="mappingContainer">
-    <table id="mappingTable">
-      <thead>
-        <tr>
-          <th>Card</th>
-          <th>Image</th>
-          <th>Upright</th>
-          <th>Reversed</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-
-    <div id="mappingGrid" class="hidden"></div>
+  <!-- Controls -->
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search for a card...">
+    <button id="randomBtn">Draw Random Card</button>
+    <button id="toggleThemeBtn">Toggle Theme</button>
+    <button id="toggleViewBtn">Toggle Table/Grid</button>
+    <button id="readingModeBtn">Reading Mode (3-card)</button>
   </div>
 
-  <!-- Reading Mode -->
-  <h2>Reading Mode</h2>
-  <label for="spreadSelect">Choose a spread:</label>
-  <select id="spreadSelect">
-    <option value="3">3-Card</option>
-    <option value="celtic">Celtic Cross</option>
-  </select>
+  <!-- Search / Result -->
+  <div id="cardResult"></div>
 
-  <label for="deckSelect">Choose deck:</label>
-  <select id="deckSelect">
-    <option value="tarot">Tarot</option>
-    <option value="playing">Playing Cards</option>
-  </select>
+  <!-- Full Mapping Table -->
+  <table id="mappingTable">
+    <thead>
+      <tr>
+        <th>Card</th>
+        <th>Image</th>
+        <th>Upright</th>
+        <th>Reversed</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-  <label for="uprightCheck">
-    <input type="checkbox" id="uprightCheck" checked> Allow Upright/Reversed
-  </label>
+  <!-- Full Mapping Grid -->
+  <div id="gridContainer" class="hidden"></div>
 
-  <button id="drawSpreadBtn">Draw Spread</button>
-  <div id="spreadResult"></div>
+  <!-- Reading Mode Spread -->
+  <div id="spreadResult" class="spreadContainer"></div>
 
   <script src="script.js"></script>
 </body>

@@ -1,43 +1,54 @@
+/* Base Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #fafafa;
-    color: #000;
-    transition: background 0.3s, color 0.3s;
+    color: #222;
+    transition: background-color 0.3s, color 0.3s;
   }
   
-  body.dark {
-    background-color: #222;
-    color: #eee;
+  .controls {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
-  button {
-    margin: 5px;
+  input, button {
     padding: 6px 10px;
+    font-size: 14px;
     cursor: pointer;
   }
   
-  input, select {
-    padding: 6px;
-    margin: 5px;
+  button {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
   }
   
-  #cardResult, #spreadResult {
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  input {
+    border: 1px solid #ccc;
+  }
+  
+  /* Card Result */
+  #cardResult {
     margin-top: 15px;
     padding: 10px;
     border: 1px solid #aaa;
     background: white;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
   }
   
-  body.dark #cardResult, body.dark #spreadResult {
-    background: #333;
-  }
-  
+  /* Table Styles */
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    transition: all 0.3s;
   }
   
   table, th, td {
@@ -49,45 +60,116 @@ body {
     text-align: left;
   }
   
-  img {
+  td img {
+    max-width: 50px;
     display: block;
     margin-bottom: 5px;
-    transition: transform 0.3s;
   }
   
-  img:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Grid styles */
-  #mappingGrid, #spreadResult {
+  /* Grid Container */
+  #gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
+    margin-top: 20px;
+    transition: all 0.3s;
   }
   
-  .cardItem, .spreadCard {
+  /* Responsive grid: 1-2 cards per row small, 5-6 large */
+  @media (max-width: 600px) {
+    #gridContainer {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 900px) {
+    #gridContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 901px) and (max-width: 1200px) {
+    #gridContainer {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    #gridContainer {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  
+  /* Individual Card in Grid */
+  .gridCard {
+    background-color: white;
+    border: 1px solid #ccc;
     padding: 10px;
-    border: 1px solid #aaa;
-    background: white;
     text-align: center;
-    transition: transform 0.3s ease, background 0.3s ease;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
   
-  .cardItem:hover, .spreadCard:hover {
+  .gridCard:hover {
     transform: scale(1.05);
-    background: #f0f0f0;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
   }
   
-  body.dark .cardItem, body.dark .spreadCard {
-    background: #333;
+  /* Hover meaning panel */
+  .meaningPanel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
   
-  body.dark .cardItem:hover, body.dark .spreadCard:hover {
-    background: #444;
+  .gridCard:hover .meaningPanel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Reading Mode Spread */
+  .spreadContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* Dark Theme */
+  body.dark {
+    background-color: #222;
+    color: #fafafa;
+  }
+  
+  body.dark #cardResult,
+  body.dark table,
+  body.dark .gridCard,
+  body.dark .meaningPanel {
+    background-color: #333;
+    color: #fafafa;
+    border-color: #555;
   }
   
   .hidden {
     display: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 5px auto;
+    transition: transform 0.3s;
   }
   
