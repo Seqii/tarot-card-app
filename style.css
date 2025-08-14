@@ -1,40 +1,159 @@
+/* --- Base Styles --- */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #fafafa;
+    transition: background-color 0.3s, color 0.3s;
+    color: #222;
   }
-
+  
+  body.dark {
+    background-color: #1e1e1e;
+    color: #eee;
+  }
+  
+  input {
+    padding: 6px;
+    width: 200px;
+  }
+  
+  button {
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  body.dark button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* --- Table Styles --- */
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    transition: opacity 0.5s;
   }
   
   table, th, td {
     border: 1px solid #ccc;
-
   }
-
+  
   th, td {
     padding: 8px;
     text-align: left;
-
   }
-
+  
   #cardResult {
     margin-top: 15px;
     padding: 10px;
     border: 1px solid #aaa;
     background: white;
+    transition: background 0.3s, color 0.3s;
   }
-
-  input {
-    padding: 6px;
-    width: 200px;
+  
+  body.dark #cardResult {
+    background: #2e2e2e;
+    color: #fff;
   }
-
+  
   img {
     display: block;
     margin-bottom: 5px;
+    transition: transform 0.3s;
   }
   
+  /* --- Grid View --- */
+  .grid-view {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+    transition: opacity 0.5s;
+  }
+  
+  .card {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  
+  body.dark .card {
+    background: #2e2e2e;
+    border-color: #444;
+    color: #eee;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  .card img {
+    max-width: 100px;
+    margin: 0 auto 10px;
+  }
+  
+  .card-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .card-meaning {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s, max-height 0.3s;
+    font-size: 0.9em;
+    text-align: left;
+  }
+  
+  .card:hover .card-meaning {
+    opacity: 1;
+    max-height: 300px; /* enough to fit the text */
+  }
+  
+  /* --- Responsive Grid --- */
+  @media (max-width: 500px) {
+    .grid-view {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (min-width: 501px) and (max-width: 900px) {
+    .grid-view {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .grid-view {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    .grid-view {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  /* --- Fade transitions for view toggle --- */
+#mappingTable,
+.grid-view {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
