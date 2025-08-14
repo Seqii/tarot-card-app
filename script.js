@@ -80,7 +80,7 @@ themeBtn.addEventListener('click', function() {
 });
 
 
-//GRID TOGGLE
+//GRID TOGGLE 9
 
 const toggleBtn = document.getElementById('toggleViewBtn');
 const table = document.getElementById('mappingTable');
