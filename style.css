@@ -2,40 +2,42 @@ body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #fafafa;
-  }
+}
 
-  table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-  }
-  
-  table, th, td {
+}
+
+table, th, td {
     border: 1px solid #ccc;
+}
 
-  }
-
-  th, td {
+th, td {
     padding: 8px;
     text-align: left;
+}
 
-  }
-
-  #cardResult {
+#cardResult {
     margin-top: 15px;
     padding: 10px;
     border: 1px solid #aaa;
     background: white;
-  }
+}
 
-  input {
+input {
     padding: 6px;
     width: 200px;
-  }
+}
 
- #mappingTable td img {
-    display: inline-block; /* keep image inline with text */
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-  
+img {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* NEW: Center images in table cells */
+table td img {
+    display: block;
+    margin: 0 auto 5px auto;
+}

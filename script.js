@@ -15,10 +15,11 @@ function populateTable() {
   cardData.forEach(card => {
     const row = `<tr>
       <td>
-        <img src="${card.image}" alt="${card.tarot}" style="max-width:50px">
-        ${card.tarot} / ${card.playing}
+        ${card.tarot}<br>-<br>${card.playing}
       </td>
-      <td>—</td>
+      <td>
+        <img src="${card.image}" alt="${card.tarot}" style="max-width:50px">
+      </td>
       <td>${card.upright}</td>
       <td>${card.reversed}</td>
     </tr>`;
@@ -30,7 +31,7 @@ function populateTable() {
 function showCard(card) {
   document.getElementById('cardResult').innerHTML = `
     <img src="${card.image}" alt="${card.tarot}" style="max-width:150px"><br>
-    <strong>Card:</strong> ${card.tarot} / ${card.playing} <br>
+    <strong>Card:</strong> ${card.tarot}<br>-<br>${card.playing} <br>
     <strong>Upright:</strong> ${card.upright} <br>
     <strong>Reversed:</strong> ${card.reversed}
   `;
@@ -53,3 +54,4 @@ document.getElementById('randomBtn').addEventListener('click', function() {
   const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
   showCard(randomCard);
 });
+
