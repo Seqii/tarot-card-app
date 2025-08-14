@@ -101,6 +101,37 @@ toggleBtn.addEventListener('click', () => {
   }
 });
 
+//store view
+// On page load, set the view based on localStorage
+window.addEventListener("DOMContentLoaded", () => {
+    const savedView = localStorage.getItem("cardView") || "table";
+  
+    if (savedView === "grid") {
+      document.getElementById("mappingTable").classList.add("hidden");
+      document.getElementById("cardGrid").classList.remove("hidden");
+    } else {
+      document.getElementById("mappingTable").classList.remove("hidden");
+      document.getElementById("cardGrid").classList.add("hidden");
+    }
+  });
+  
+  // Toggle button
+  document.getElementById("toggleViewBtn").addEventListener("click", () => {
+    const table = document.getElementById("mappingTable");
+    const grid = document.getElementById("cardGrid");
+  
+    table.classList.toggle("hidden");
+    grid.classList.toggle("hidden");
+  
+    // Save current view
+    if (grid.classList.contains("hidden")) {
+      localStorage.setItem("cardView", "table");
+    } else {
+      localStorage.setItem("cardView", "grid");
+    }
+  });
+  
+
 function populateGrid() {
   gridContainer.innerHTML = '';
   cardData.forEach(card => {
