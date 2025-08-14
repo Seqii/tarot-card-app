@@ -141,4 +141,23 @@ body {
     margin-left: 10px;
     cursor: pointer;
   }
+  #spreadResult {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .spreadCard {
+    padding: 10px;
+    border: 1px solid #aaa;
+    background: white;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .spreadCard:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+  }
   

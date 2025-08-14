@@ -15,11 +15,6 @@
   <button id="themeBtn">Toggle Light/Dark</button>
   <button id="toggleViewBtn">Toggle Grid / Table View</button>
 
-  
-
-  
-
-
   <!-- Results -->
   <div id="cardResult"></div>
 
@@ -38,5 +33,29 @@
 
   <div id="gridContainer" class="grid-view" style="display:none;"></div>
 
+  <!-- Reading Mode -->
+<h2>Reading Mode</h2>
+<label for="spreadSelect">Choose a spread:</label>
+<select id="spreadSelect">
+  <option value="3">3-Card</option>
+  <option value="celtic">Celtic Cross</option>
+</select>
+
+<label for="deckSelect">Choose deck:</label>
+<select id="deckSelect">
+  <option value="tarot">Tarot</option>
+  <option value="playing">Playing Cards</option>
+</select>
+
+<label for="uprightCheck">
+  <input type="checkbox" id="uprightCheck" checked> Allow Upright/Reversed
+</label>
+
+<button id="drawSpreadBtn">Draw Spread</button>
+
+<div id="spreadResult"></div>
+
+
   <script src="script.js"></script>
 </body>
+

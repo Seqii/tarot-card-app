@@ -137,3 +137,48 @@ function applySavedTheme() {
     document.body.classList.remove("dark-theme");
   }
 }
+
+//reading mode
+function drawRandomCard(deckType, allowReversed) {
+    const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
+    const isReversed = allowReversed ? Math.random() < 0.5 : false;
+    return {
+      tarot: randomCard.tarot,
+      playing: randomCard.playing,
+      image: randomCard.image,
+      uprightText: randomCard.upright,
+      reversedText: randomCard.reversed,
+      reversed: isReversed
+    };
+  }
+  
+  document.getElementById('drawSpreadBtn').addEventListener('click', function() {
+    const spreadType = document.getElementById('spreadSelect').value;
+    const deckType = document.getElementById('deckSelect').value;
+    const allowReversed = document.getElementById('uprightCheck').checked;
+  
+    let numberOfCards = spreadType === '3' ? 3 : 10; // 10 for Celtic Cross
+    const spreadCards = [];
+  
+    for (let i = 0; i < numberOfCards; i++) {
+      const card = drawRandomCard(deckType, allowReversed);
+      spreadCards.push(card);
+    }
+  
+    // Render the spread
+    const spreadDiv = document.getElementById('spreadResult');
+    spreadDiv.innerHTML = ''; 
+    spreadCards.forEach(card => {
+      const meaning = card.reversed ? card.reversedText : card.uprightText;
+      spreadDiv.innerHTML += `
+        <div class="spreadCard">
+          <img src="${card.image}" alt="${card.tarot}" style="max-width:100px"><br>
+          <strong>${deckType === 'tarot' ? card.tarot : card.playing}</strong><br>
+          <em>${deckType === 'tarot' ? card.playing : card.tarot}</em><br>
+          <p>${meaning}</p>
+          ${card.reversed ? '<small>(Reversed)</small>' : ''}
+        </div>
+      `;
+    });
+  });
+  
