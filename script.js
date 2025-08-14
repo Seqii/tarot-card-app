@@ -78,3 +78,42 @@ themeBtn.addEventListener('click', function() {
     themeBtn.textContent = "Switch to Dark";
   }
 });
+
+
+//GRID TOGGLE
+
+const toggleBtn = document.getElementById('toggleViewBtn');
+const table = document.getElementById('mappingTable');
+const gridContainer = document.getElementById('gridContainer');
+
+toggleBtn.addEventListener('click', () => {
+  if (gridContainer.style.display === 'none') {
+    // Show grid, hide table
+    table.style.display = 'none';
+    gridContainer.style.display = 'grid';
+    toggleBtn.textContent = 'Switch to Table View';
+    populateGrid();
+  } else {
+    // Show table, hide grid
+    table.style.display = 'table';
+    gridContainer.style.display = 'none';
+    toggleBtn.textContent = 'Switch to Grid View';
+  }
+});
+
+function populateGrid() {
+  gridContainer.innerHTML = '';
+  cardData.forEach(card => {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.innerHTML = `
+      <img src="${card.image}" alt="${card.tarot}">
+      <div class="card-name">${card.tarot} - ${card.playing}</div>
+      <div class="card-meaning">
+        <strong>Upright:</strong> ${card.upright}<br>
+        <strong>Reversed:</strong> ${card.reversed}
+      </div>
+    `;
+    gridContainer.appendChild(cardDiv);
+  });
+}
