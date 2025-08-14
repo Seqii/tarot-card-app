@@ -1,9 +1,13 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #fafafa;
+    color: #000;
+    transition: background 0.3s, color 0.3s;
   }
-
+  
+  /* Table styling */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -12,29 +16,129 @@ body {
   
   table, th, td {
     border: 1px solid #ccc;
-
   }
-
+  
   th, td {
     padding: 8px;
     text-align: left;
-
   }
-
+  
+  /* Search/result styling */
   #cardResult {
     margin-top: 15px;
     padding: 10px;
     border: 1px solid #aaa;
     background: white;
   }
-
+  
   input {
     padding: 6px;
     width: 200px;
   }
-
+  
   img {
     display: block;
     margin-bottom: 5px;
+  }
+  
+  /* Dark mode */
+  body.dark {
+    background-color: #111;
+    color: #eee;
+  }
+  
+  body.dark table, 
+  body.dark th, 
+  body.dark td {
+    border-color: #555;
+  }
+  
+  body.dark #cardResult {
+    background-color: #222;
+    border-color: #555;
+  }
+  
+  /* Grid view */
+  .grid-view {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  /* Responsive columns */
+  @media (min-width: 320px) {
+    .grid-view {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  @media (min-width: 480px) {
+    .grid-view {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 768px) {
+    .grid-view {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-view {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  /* Card styling */
+  .card {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  
+  .card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .card-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Hover effect */
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  }
+  
+  .card-meaning {
+    display: none;
+    text-align: left;
+    font-size: 0.85em;
+    margin-top: 5px;
+  }
+  
+  .card:hover .card-meaning {
+    display: block;
+  }
+  
+  /* Dark mode for cards */
+  body.dark .card {
+    background: #333;
+    border-color: #555;
+    color: #eee;
+  }
+  
+  body.dark .card:hover {
+    box-shadow: 0 8px 15px rgba(255,255,255,0.1);
+  }
+  
+  /* Optional: toggle button styling */
+  button {
+    padding: 6px 12px;
+    margin-left: 10px;
+    cursor: pointer;
   }
   

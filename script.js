@@ -13,8 +13,8 @@ function populateTable() {
   tbody.innerHTML = "";
   cardData.forEach(card => {
     const row = `<tr>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"> ${card.tarot}</td>
-      <td><img src="${card.image}" alt="${card.playing}" style="max-width:50px"> ${card.playing}</td>
+      <td>${card.tarot} - ${card.playing}</td>
+      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"></td>
       <td>${card.upright}</td>
       <td>${card.reversed}</td>
     </tr>`;
@@ -54,3 +54,66 @@ document.getElementById('randomBtn').addEventListener('click', function() {
     <strong>Reversed:</strong> ${randomCard.reversed}
   `;
 });
+
+// Theme toggle
+const themeBtn = document.getElementById('themeBtn');
+
+// Apply saved theme on load
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+  themeBtn.textContent = "Switch to Light";
+} else {
+  themeBtn.textContent = "Switch to Dark";
+}
+
+// Toggle theme on click
+themeBtn.addEventListener('click', function() {
+  document.body.classList.toggle('dark');
+
+  if (document.body.classList.contains('dark')) {
+    localStorage.setItem('theme', 'dark');
+    themeBtn.textContent = "Switch to Light";
+  } else {
+    localStorage.setItem('theme', 'light');
+    themeBtn.textContent = "Switch to Dark";
+  }
+});
+
+
+//GRID TOGGLE
+
+const toggleBtn = document.getElementById('toggleViewBtn');
+const table = document.getElementById('mappingTable');
+const gridContainer = document.getElementById('gridContainer');
+
+toggleBtn.addEventListener('click', () => {
+  if (gridContainer.style.display === 'none') {
+    // Show grid, hide table
+    table.style.display = 'none';
+    gridContainer.style.display = 'grid';
+    toggleBtn.textContent = 'Switch to Table View';
+    populateGrid();
+  } else {
+    // Show table, hide grid
+    table.style.display = 'table';
+    gridContainer.style.display = 'none';
+    toggleBtn.textContent = 'Switch to Grid View';
+  }
+});
+
+function populateGrid() {
+  gridContainer.innerHTML = '';
+  cardData.forEach(card => {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.innerHTML = `
+      <img src="${card.image}" alt="${card.tarot}">
+      <div class="card-name">${card.tarot} - ${card.playing}</div>
+      <div class="card-meaning">
+        <strong>Upright:</strong> ${card.upright}<br>
+        <strong>Reversed:</strong> ${card.reversed}
+      </div>
+    `;
+    gridContainer.appendChild(cardDiv);
+  });
+}
