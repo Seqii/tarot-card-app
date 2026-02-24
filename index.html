@@ -2,39 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Look up tarot cards and their playing card equivalents, complete with upright and reversed meanings.">
   <title>Tarot ↔ Playing Card Converter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Tarot ↔ Playing Card Converter</h1>
+  <header>
+    <h1>🃏 Tarot ↔ Playing Card Converter</h1>
+    <p class="subtitle">Explore all 78 cards — discover their meanings and playing card equivalents.</p>
+  </header>
 
+  <main>
+    <!-- Controls -->
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search by tarot or playing card name…" aria-label="Search for a card">
+      <button id="randomBtn">🎴 Draw Random Card</button>
+      <button id="themeBtn">🌙 Switch to Dark</button>
+      <button id="toggleViewBtn">⊞ Switch to Grid View</button>
+    </div>
 
-  <!-- Search / Lookup -->
-  <input type="text" id="search" placeholder="Search for a card...">
-  <button id="randomBtn">Draw Random Card</button>
-  <button id="themeBtn">Toggle Light/Dark</button>
-  <button id="toggleViewBtn">Switch to Grid View</button>
+    <!-- Results -->
+    <div id="cardResult" aria-live="polite"></div>
 
-  
+    <!-- Full Mapping Table -->
+    <table id="mappingTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Tarot Card</th>
+          <th>Playing Card</th>
+          <th>Upright</th>
+          <th>Reversed</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
+    <div id="gridContainer" class="grid-view" style="display:none;"></div>
+  </main>
 
-  <!-- Results -->
-  <div id="cardResult"></div>
-
-  <!-- Full Mapping Table -->
-  <table id="mappingTable">
-    <thead>
-      <tr>
-        <th>Tarot Card</th>
-        <th>Playing Card</th>
-        <th>Upright</th>
-        <th>Reversed</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <div id="gridContainer" class="grid-view" style="display:none;"></div>
+  <footer>
+    <p>78 cards &bull; Major &amp; Minor Arcana</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
+</html>

@@ -1,119 +1,143 @@
 let cardData = [];
+let gridPopulated = false;
 
-// Load JSON data
+// ─── Helpers ────────────────────────────────────────────────────
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function formatMeaning(text) {
+  return escapeHtml(text).replace(/\n/g, '<br>');
+}
+
+function buildCardResultHTML(card) {
+  return `
+    <img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.tarot)}">
+    <div class="result-details">
+      <h2>${escapeHtml(card.tarot)}</h2>
+      <p><strong>Playing Card:</strong> ${escapeHtml(card.playing)}</p>
+      <p><strong>Upright:</strong> ${formatMeaning(card.upright)}</p>
+      <p><strong>Reversed:</strong> ${formatMeaning(card.reversed)}</p>
+    </div>
+  `;
+}
+
+// ─── Populate table ──────────────────────────────────────────────
+function populateTable() {
+  const tbody = document.querySelector('#mappingTable tbody');
+  const rows = cardData.map(card => `<tr>
+    <td><img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.tarot)}"></td>
+    <td>${escapeHtml(card.tarot)}</td>
+    <td>${escapeHtml(card.playing)}</td>
+    <td>${formatMeaning(card.upright)}</td>
+    <td>${formatMeaning(card.reversed)}</td>
+  </tr>`);
+  tbody.innerHTML = rows.join('');
+}
+
+// ─── Populate grid ───────────────────────────────────────────────
+function populateGrid() {
+  if (gridPopulated) return;
+  gridPopulated = true;
+  const fragment = document.createDocumentFragment();
+  cardData.forEach(card => {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card');
+    cardDiv.innerHTML = `
+      <img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.tarot)}">
+      <div class="card-name">${escapeHtml(card.tarot)}</div>
+      <div class="card-playing">${escapeHtml(card.playing)}</div>
+      <div class="card-meaning">
+        <strong>Upright:</strong> ${formatMeaning(card.upright)}<br>
+        <strong>Reversed:</strong> ${formatMeaning(card.reversed)}
+      </div>
+    `;
+    fragment.appendChild(cardDiv);
+  });
+  document.getElementById('gridContainer').appendChild(fragment);
+}
+
+// ─── Load data ───────────────────────────────────────────────────
 fetch('data.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to load card data');
+    return response.json();
+  })
   .then(data => {
     cardData = data;
     populateTable();
+  })
+  .catch(err => {
+    document.getElementById('cardResult').textContent = 'Error loading card data. Please refresh and try again.';
+    console.error(err);
   });
 
-function populateTable() {
-  const tbody = document.querySelector("#mappingTable tbody");
-  tbody.innerHTML = "";
-  cardData.forEach(card => {
-    const row = `<tr>
-      <td>${card.tarot} - ${card.playing}</td>
-      <td><img src="${card.image}" alt="${card.tarot}" style="max-width:50px"></td>
-      <td>${card.upright}</td>
-      <td>${card.reversed}</td>
-    </tr>`;
-    tbody.innerHTML += row;
-  });
-}
+// ─── Search ──────────────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  const cardResult = document.getElementById('cardResult');
 
-// Search functionality
-document.getElementById('search').addEventListener('input', function() {
-  const query = this.value.toLowerCase();
+  if (!query) {
+    cardResult.innerHTML = '';
+    return;
+  }
+
   const result = cardData.find(card =>
-    card.tarot.toLowerCase() === query ||
-    card.playing.toLowerCase() === query
+    card.tarot.toLowerCase().includes(query) ||
+    card.playing.toLowerCase().includes(query)
   );
 
-  if (result) {
-    document.getElementById('cardResult').innerHTML = `
-      <img src="${result.image}" alt="${result.tarot}" style="max-width:150px"><br>
-      <strong>Tarot:</strong> ${result.tarot} <br>
-      <strong>Playing:</strong> ${result.playing} <br>
-      <strong>Upright:</strong> ${result.upright} <br>
-      <strong>Reversed:</strong> ${result.reversed}
-    `;
-  } else {
-    document.getElementById('cardResult').innerHTML = "No match found.";
-  }
+  cardResult.innerHTML = result
+    ? buildCardResultHTML(result)
+    : '<p>No matching card found.</p>';
 });
 
-// Random card button
-document.getElementById('randomBtn').addEventListener('click', function() {
+// ─── Random card ─────────────────────────────────────────────────
+document.getElementById('randomBtn').addEventListener('click', function () {
+  if (!cardData.length) return;
   const randomCard = cardData[Math.floor(Math.random() * cardData.length)];
-  document.getElementById('cardResult').innerHTML = `
-    <img src="${randomCard.image}" alt="${randomCard.tarot}" style="max-width:150px"><br>
-    <strong>Tarot:</strong> ${randomCard.tarot} <br>
-    <strong>Playing:</strong> ${randomCard.playing} <br>
-    <strong>Upright:</strong> ${randomCard.upright} <br>
-    <strong>Reversed:</strong> ${randomCard.reversed}
-  `;
+  document.getElementById('cardResult').innerHTML = buildCardResultHTML(randomCard);
 });
 
-// Theme toggle
+// ─── Theme toggle ────────────────────────────────────────────────
 const themeBtn = document.getElementById('themeBtn');
 
-// Apply saved theme on load
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-  themeBtn.textContent = "Switch to Light";
-} else {
-  themeBtn.textContent = "Switch to Dark";
+function applyTheme(dark) {
+  if (dark) {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+  themeBtn.textContent = dark ? '☀️ Switch to Light' : '🌙 Switch to Dark';
 }
 
-// Toggle theme on click
-themeBtn.addEventListener('click', function() {
-  document.body.classList.toggle('dark');
+applyTheme(localStorage.getItem('theme') === 'dark');
 
-  if (document.body.classList.contains('dark')) {
-    localStorage.setItem('theme', 'dark');
-    themeBtn.textContent = "Switch to Light";
-  } else {
-    localStorage.setItem('theme', 'light');
-    themeBtn.textContent = "Switch to Dark";
-  }
+themeBtn.addEventListener('click', function () {
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  applyTheme(!isDark);
 });
 
-
-//GRID TOGGLE
-
+// ─── Grid / Table toggle ─────────────────────────────────────────
 const toggleBtn = document.getElementById('toggleViewBtn');
 const table = document.getElementById('mappingTable');
 const gridContainer = document.getElementById('gridContainer');
 
 toggleBtn.addEventListener('click', () => {
-  if (gridContainer.style.display === 'none') {
-    // Show grid, hide table
-    table.style.display = 'none';
-    gridContainer.style.display = 'grid';
-    toggleBtn.textContent = 'Switch to Table View';
-    populateGrid();
-  } else {
-    // Show table, hide grid
+  const showingGrid = gridContainer.style.display !== 'none';
+  if (showingGrid) {
     table.style.display = 'table';
     gridContainer.style.display = 'none';
-    toggleBtn.textContent = 'Switch to Grid View';
+    toggleBtn.textContent = '⊞ Switch to Grid View';
+  } else {
+    table.style.display = 'none';
+    gridContainer.style.display = 'grid';
+    toggleBtn.textContent = '☰ Switch to Table View';
+    populateGrid();
   }
 });
-
-function populateGrid() {
-  gridContainer.innerHTML = '';
-  cardData.forEach(card => {
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-    cardDiv.innerHTML = `
-      <img src="${card.image}" alt="${card.tarot}">
-      <div class="card-name">${card.tarot} - ${card.playing}</div>
-      <div class="card-meaning">
-        <strong>Upright:</strong> ${card.upright}<br>
-        <strong>Reversed:</strong> ${card.reversed}
-      </div>
-    `;
-    gridContainer.appendChild(cardDiv);
-  });
-}
