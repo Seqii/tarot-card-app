@@ -5,15 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Look up tarot cards and their playing card equivalents, complete with upright and reversed meanings.">
   <title>Tarot ↔ Playing Card Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🃏 Tarot ↔ Playing Card Converter</h1>
+    <h1>✦ Tarot ↔ Playing Card Converter ✦</h1>
     <p class="subtitle">Explore all 78 cards — discover their meanings and playing card equivalents.</p>
   </header>
 
   <main>
+    <!-- Reading Section -->
+    <section id="readingSection">
+      <h2 class="section-title">✦ Spread Reading ✦</h2>
+      <div class="reading-controls">
+        <label for="spreadSelect">Choose a Spread:</label>
+        <select id="spreadSelect">
+          <option value="single">Single Card — Daily Draw</option>
+          <option value="three">Three Cards — Past · Present · Future</option>
+          <option value="five">Five Cards — Cross Spread</option>
+        </select>
+        <button id="readingBtn">🔮 Begin Reading</button>
+      </div>
+      <div id="readingResult" aria-live="polite"></div>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- Controls -->
     <div class="controls">
       <input type="text" id="search" placeholder="Search by tarot or playing card name…" aria-label="Search for a card">
