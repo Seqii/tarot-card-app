@@ -4,10 +4,10 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
   margin: 0;
-  background-color: #f5f0ff;
-  color: #1a1a2e;
+  background-color: #f7eedc;
+  color: #2c1a0e;
   transition: background 0.3s, color 0.3s;
   min-height: 100vh;
   display: flex;
@@ -16,22 +16,26 @@ body {
 
 /* ─── Header ────────────────────────────────────────────────── */
 header {
-  background: linear-gradient(135deg, #4b1c82 0%, #7b3fbe 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #3b1245 0%, #6b2d8b 100%);
+  color: #f7e9c3;
   text-align: center;
   padding: 2rem 1rem 1.5rem;
+  border-bottom: 3px solid #8b5e1a;
 }
 
 h1 {
   margin: 0 0 0.4rem;
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
-  letter-spacing: 0.02em;
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: clamp(1.3rem, 4vw, 2.1rem);
+  letter-spacing: 0.06em;
+  color: #f7e9c3;
 }
 
 .subtitle {
   margin: 0;
   opacity: 0.85;
   font-size: 0.95rem;
+  font-style: italic;
 }
 
 /* ─── Main content ──────────────────────────────────────────── */
@@ -41,6 +45,152 @@ main {
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem 1rem;
+}
+
+/* ─── Section titles ────────────────────────────────────────── */
+.section-title {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #3b1245;
+  margin: 0 0 1rem;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #c4a46b;
+  margin: 1.5rem 0;
+  opacity: 0.6;
+}
+
+/* ─── Reading section ───────────────────────────────────────── */
+#readingSection {
+  background: #fff9ee;
+  border: 2px solid #c4a46b;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem 1.4rem;
+  margin-bottom: 0;
+}
+
+.reading-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.reading-controls label {
+  font-style: italic;
+  color: #5a3a00;
+  font-size: 0.95rem;
+}
+
+#spreadSelect {
+  padding: 0.5rem 0.8rem;
+  border: 2px solid #c4a46b;
+  border-radius: 6px;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 0.9rem;
+  background: #fffaf0;
+  color: #2c1a0e;
+  cursor: pointer;
+}
+
+#readingBtn {
+  background: linear-gradient(135deg, #3b1245 0%, #6b2d8b 100%);
+  color: #f7e9c3;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+#readingBtn:hover {
+  opacity: 0.88;
+  box-shadow: 0 3px 10px rgba(59, 18, 69, 0.4);
+}
+#readingBtn:active {
+  transform: scale(0.97);
+}
+
+/* ─── Reading result ────────────────────────────────────────── */
+#readingResult {
+  margin-top: 0.5rem;
+}
+
+.reading-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #3b1245;
+  margin: 0 0 1rem;
+}
+
+.reading-spread {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.reading-card {
+  background: #fffaf0;
+  border: 2px solid #c4a46b;
+  border-radius: 10px;
+  padding: 0.9rem 0.7rem;
+  text-align: center;
+  flex: 1 1 130px;
+  max-width: 160px;
+  box-shadow: 0 3px 10px rgba(139, 94, 26, 0.15);
+}
+
+.reading-position {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #8b5e1a;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.reading-card img {
+  max-width: 90px;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+
+.reading-card-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #3b1245;
+  margin-bottom: 0.25rem;
+}
+
+.reading-card-playing {
+  font-size: 0.75rem;
+  color: #7a5c2e;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+
+.reading-card-meaning {
+  font-size: 0.74rem;
+  color: #3e2a12;
+  line-height: 1.45;
+  text-align: left;
+  margin-top: 0.4rem;
+  border-top: 1px solid #e0c98a;
+  padding-top: 0.4rem;
 }
 
 /* ─── Controls ──────────────────────────────────────────────── */
@@ -56,18 +206,19 @@ input#search {
   padding: 0.5rem 0.8rem;
   flex: 1;
   min-width: 200px;
-  border: 2px solid #c8a8f5;
+  border: 2px solid #c4a46b;
   border-radius: 6px;
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.95rem;
-  background: #fff;
-  color: #1a1a2e;
+  background: #fffaf0;
+  color: #2c1a0e;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input#search:focus {
   outline: none;
-  border-color: #7b3fbe;
-  box-shadow: 0 0 0 3px rgba(123, 63, 190, 0.2);
+  border-color: #8b5e1a;
+  box-shadow: 0 0 0 3px rgba(139, 94, 26, 0.2);
 }
 
 button {
@@ -75,6 +226,7 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-family: 'Lora', Georgia, serif;
   font-size: 0.9rem;
   font-weight: 600;
   transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
@@ -86,40 +238,40 @@ button:active {
 }
 
 #randomBtn {
-  background: #7b3fbe;
-  color: #fff;
+  background: #6b2d8b;
+  color: #f7e9c3;
 }
 #randomBtn:hover {
-  background: #5e2d96;
-  box-shadow: 0 3px 8px rgba(123, 63, 190, 0.4);
+  background: #3b1245;
+  box-shadow: 0 3px 8px rgba(59, 18, 69, 0.4);
 }
 
 #themeBtn {
-  background: #2e2e4e;
-  color: #fff;
+  background: #3b1245;
+  color: #f7e9c3;
 }
 #themeBtn:hover {
-  background: #1a1a2e;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  background: #2c0d36;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
 
 #toggleViewBtn {
-  background: #fff;
-  color: #4b1c82;
-  border: 2px solid #c8a8f5;
+  background: #fffaf0;
+  color: #3b1245;
+  border: 2px solid #c4a46b;
 }
 #toggleViewBtn:hover {
-  background: #ede7ff;
-  box-shadow: 0 3px 8px rgba(123, 63, 190, 0.2);
+  background: #f5e8ca;
+  box-shadow: 0 3px 8px rgba(139, 94, 26, 0.2);
 }
 
 /* ─── Card result panel ─────────────────────────────────────── */
 #cardResult {
   margin-bottom: 1.2rem;
   padding: 1rem 1.2rem;
-  border: 2px solid #c8a8f5;
+  border: 2px solid #c4a46b;
   border-radius: 10px;
-  background: #fff;
+  background: #fffaf0;
   display: flex;
   align-items: flex-start;
   gap: 1.2rem;
@@ -134,7 +286,7 @@ button:active {
 #cardResult img {
   max-width: 120px;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
 #cardResult .result-details {
@@ -144,8 +296,9 @@ button:active {
 
 #cardResult .result-details h2 {
   margin: 0 0 0.5rem;
+  font-family: 'Cinzel', serif;
   font-size: 1.2rem;
-  color: #4b1c82;
+  color: #3b1245;
 }
 
 #cardResult .result-details p {
@@ -160,27 +313,29 @@ table {
   border-collapse: collapse;
   margin-top: 0;
   font-size: 0.88rem;
-  background: #fff;
+  background: #fffaf0;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(139, 94, 26, 0.1);
 }
 
 thead {
-  background: #4b1c82;
-  color: #fff;
+  background: #3b1245;
+  color: #f7e9c3;
 }
 
 th {
   padding: 0.75rem 0.8rem;
   text-align: left;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
 }
 
 td {
   padding: 0.6rem 0.8rem;
-  border-bottom: 1px solid #ede7ff;
+  border-bottom: 1px solid #e8d5a8;
   vertical-align: middle;
 }
 
@@ -189,7 +344,7 @@ tbody tr:last-child td {
 }
 
 tbody tr:hover {
-  background: #f5f0ff;
+  background: #f5e8ca;
 }
 
 td img {
@@ -222,8 +377,8 @@ td img {
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #c8a8f5;
+  background: #fffaf0;
+  border: 1px solid #c4a46b;
   border-radius: 10px;
   padding: 0.9rem 0.7rem;
   text-align: center;
@@ -239,16 +394,18 @@ td img {
 }
 
 .card-name {
+  font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   margin-bottom: 0.3rem;
-  color: #4b1c82;
+  color: #3b1245;
 }
 
 .card-playing {
   font-size: 0.78rem;
-  color: #666;
+  color: #7a5c2e;
   margin-bottom: 0.3rem;
+  font-style: italic;
 }
 
 .card-meaning {
@@ -256,13 +413,13 @@ td img {
   text-align: left;
   font-size: 0.78rem;
   margin-top: 0.5rem;
-  color: #333;
+  color: #3e2a12;
   line-height: 1.4;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(75, 28, 130, 0.2);
+  box-shadow: 0 8px 20px rgba(139, 94, 26, 0.25);
 }
 
 .card:hover .card-meaning {
@@ -274,39 +431,87 @@ footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.82rem;
-  color: #888;
-  border-top: 1px solid #ede7ff;
+  color: #9a7a4a;
+  border-top: 1px solid #e0c98a;
+  font-style: italic;
 }
 
 /* ─── Dark mode ─────────────────────────────────────────────── */
 body.dark {
-  background-color: #0f0f1a;
-  color: #e0d6f5;
+  background-color: #12080d;
+  color: #e8d9b8;
 }
 
 body.dark header {
-  background: linear-gradient(135deg, #2a0d50 0%, #4b1c82 100%);
+  background: linear-gradient(135deg, #1e0830 0%, #3b1245 100%);
+  border-bottom-color: #5a3a00;
+}
+
+body.dark .section-title {
+  color: #c4a46b;
+}
+
+body.dark #readingSection {
+  background: #1c1020;
+  border-color: #5a3a00;
+}
+
+body.dark .reading-controls label {
+  color: #c4a46b;
+}
+
+body.dark #spreadSelect {
+  background: #1c1020;
+  color: #e8d9b8;
+  border-color: #5a3a00;
+}
+
+body.dark .reading-card {
+  background: #1c1020;
+  border-color: #5a3a00;
+  color: #e8d9b8;
+}
+
+body.dark .reading-position {
+  color: #c4a46b;
+}
+
+body.dark .reading-card-name {
+  color: #d4a8f0;
+}
+
+body.dark .reading-card-playing {
+  color: #c4a46b;
+}
+
+body.dark .reading-card-meaning {
+  color: #ccc;
+  border-top-color: #5a3a00;
+}
+
+body.dark .section-divider {
+  border-top-color: #5a3a00;
 }
 
 body.dark input#search {
-  background: #1e1e30;
-  color: #e0d6f5;
-  border-color: #5a3a8a;
+  background: #1c1020;
+  color: #e8d9b8;
+  border-color: #5a3a00;
 }
 
 body.dark #toggleViewBtn {
-  background: #1e1e30;
-  color: #c8a8f5;
-  border-color: #5a3a8a;
+  background: #1c1020;
+  color: #c4a46b;
+  border-color: #5a3a00;
 }
 
 body.dark #cardResult {
-  background: #1e1e30;
-  border-color: #5a3a8a;
+  background: #1c1020;
+  border-color: #5a3a00;
 }
 
 body.dark #cardResult .result-details h2 {
-  color: #c8a8f5;
+  color: #d4a8f0;
 }
 
 body.dark #cardResult .result-details p {
@@ -314,35 +519,35 @@ body.dark #cardResult .result-details p {
 }
 
 body.dark table {
-  background: #1e1e30;
+  background: #1c1020;
   box-shadow: none;
 }
 
 body.dark thead {
-  background: #2a0d50;
+  background: #1e0830;
 }
 
 body.dark td {
-  border-bottom-color: #2e2e50;
-  color: #e0d6f5;
+  border-bottom-color: #2a1a00;
+  color: #e8d9b8;
 }
 
 body.dark tbody tr:hover {
-  background: #2a1a45;
+  background: #2a1830;
 }
 
 body.dark .card {
-  background: #1e1e30;
-  border-color: #5a3a8a;
-  color: #e0d6f5;
+  background: #1c1020;
+  border-color: #5a3a00;
+  color: #e8d9b8;
 }
 
 body.dark .card-name {
-  color: #c8a8f5;
+  color: #d4a8f0;
 }
 
 body.dark .card-playing {
-  color: #aaa;
+  color: #c4a46b;
 }
 
 body.dark .card-meaning {
@@ -354,6 +559,8 @@ body.dark .card:hover {
 }
 
 body.dark footer {
-  color: #666;
-  border-top-color: #2e2e50;
+  color: #7a6030;
+  border-top-color: #2a1a00;
 }
+
+

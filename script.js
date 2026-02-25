@@ -141,3 +141,40 @@ toggleBtn.addEventListener('click', () => {
     populateGrid();
   }
 });
+
+// ─── Spread Reading ───────────────────────────────────────────
+const SPREADS = {
+  single: { label: 'Daily Draw', positions: ['Your Card'] },
+  three:  { label: 'Past · Present · Future', positions: ['Past', 'Present', 'Future'] },
+  five:   { label: 'Cross Spread', positions: ['Situation', 'Challenge', 'Foundation', 'Past', 'Future'] }
+};
+
+function drawReading(spreadKey) {
+  const spread = SPREADS[spreadKey];
+  const drawn = [...cardData]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, spread.positions.length);
+
+  const cardsHTML = drawn.map((card, i) => `
+    <div class="reading-card">
+      <div class="reading-position">${escapeHtml(spread.positions[i])}</div>
+      <img src="${escapeHtml(card.image)}" alt="${escapeHtml(card.tarot)}">
+      <div class="reading-card-name">${escapeHtml(card.tarot)}</div>
+      <div class="reading-card-playing">${escapeHtml(card.playing)}</div>
+      <div class="reading-card-meaning">
+        <strong>Upright:</strong> ${formatMeaning(card.upright)}<br>
+        <strong>Reversed:</strong> ${formatMeaning(card.reversed)}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('readingResult').innerHTML = `
+    <p class="reading-title">${escapeHtml(spread.label)}</p>
+    <div class="reading-spread">${cardsHTML}</div>
+  `;
+}
+
+document.getElementById('readingBtn').addEventListener('click', function () {
+  if (!cardData.length) return;
+  drawReading(document.getElementById('spreadSelect').value);
+});
